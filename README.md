@@ -118,7 +118,7 @@ Uncomment these, and change to /bin/gzip :
 - Change PREFIX to the directory which will contain the compiled NetHack, in this case "/home/nethack-compiled/"
 - Change GAMEDIR to $(PREFIX)/nh343 (This must match HACKDIR in include/config.h)
 - Change VARDIR to $(GAMEDIR)/var  (This must match VAR_PLAYGROUND in include/unixconf.h)
-- Change GAMEUID and GAMEGRP to the user and group you will run nethack as; use numbers, not names. In CentOS 8, they are 12 and 20 respectively.
+- Change GAMEUID and GAMEGRP to the user and group you will run nethack as; use numbers, not names. In CentOS 8, they are 12 and 20 respectively. In CentOS 7, they are 12 and 100.
 
 ##### 4) Edit sys/unix/Makefile.src
 
