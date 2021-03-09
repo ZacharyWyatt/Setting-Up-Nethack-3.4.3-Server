@@ -37,7 +37,7 @@ Required packages for compiling dgamelaunch:
 ```
 yum install git autoconf automake sqlite sqlite-devel
 
-dnf config-manager --set-enabled powertools
+dnf config-manager --set-enabled powertools #If CentOS8
 yum install flex-devel
 ```
 
