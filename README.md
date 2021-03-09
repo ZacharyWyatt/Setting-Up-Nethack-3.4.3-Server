@@ -171,6 +171,7 @@ If you have to go back and fix anything in the makefiles, you should run `make c
 
 ##### 1) Download the latest version from GitHub
 ```
+mkdir /home/dgamelaunch/ && cd /home/dgamelaunch/
 cd /home/dgamelaunch/
 git clone https://github.com/paxed/dgamelaunch.git
 cd dgamelaunch
