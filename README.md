@@ -262,6 +262,7 @@ chkconfig xinetd on
 ### Testing the Telnet Server
 
 Try connecting locally using 'telnet 127.0.0.1'.
+
 If you get an immediate "connection closed by foreign host", then something is probably wrong with dgamelaunch. A common issue is that the dgamelaunch config file was not specified correctly, and dgamelaunch is looking for it in /etc/dgamelaunch.conf and not in the chroot.
 
 ### Customizing the Dgamelaunch Menus
