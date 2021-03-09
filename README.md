@@ -254,9 +254,10 @@ rlimit_cpu      = 120
 ```
 
 ##### 3) Start the telnet server:
-
+```
 service xinetd start
 chkconfig xinetd on
+```
 
 ### Testing the Telnet Server
 
