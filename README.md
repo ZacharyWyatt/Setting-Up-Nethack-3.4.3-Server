@@ -174,11 +174,11 @@ If you have to go back and fix anything in the makefiles, you should run `make c
 mkdir /home/dgamelaunch/ && cd /home/dgamelaunch/
 cd /home/dgamelaunch/
 git clone https://github.com/paxed/dgamelaunch.git
-cd dgamelaunch
 ```
 
 ##### 2) Run autogen.sh, making sure to use an etc/dgamelaunch.conf file location within the chroot directory you'll be using.
 ```
+cd dgamelaunch
 ./autogen.sh --enable-sqlite --enable-shmem --with-config-file=/home/nethack/etc/dgamelaunch.conf
 ```
 
