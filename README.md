@@ -24,7 +24,7 @@ The commands that you will run to install all required packages:
 ```
 yum install gzip make gcc ncurses-libs ncurses-devel byacc flex autoconf automake git sqlite sqlite-devel xinetd telnet-server
 
-dnf config-manager --set-enabled powertools
+dnf config-manager --set-enabled powertools #If CentOS8
 yum install flex-devel
 ```
 
