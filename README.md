@@ -218,7 +218,7 @@ shed_uid     (UID of user "games")
 shed_gid     (GID of group "games")
 menu_max_idle_time (uncomment)
 ```
-### Testing Nethack and dgamelaunch
+### Testing Nethack and Dgamelaunch
 ##### 1) Make sure that you can run nethack inside the chroot environment.
 Try the following as root:
 ```
