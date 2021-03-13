@@ -4,13 +4,13 @@ A guide on how to compile [Nethack 3.4.3](https://www.nethack.org/v343/release.h
 This guide details how to set up a Nethack 3.4.3 server on CentOS 7 or 8. If you are using a different distribution, the required packages may have different names, and the commands used to install them will differ depending on your package manager.
 
 The steps to setup a Nethack 3.4.3 server are as follows:
-1) Install Requisite Packages
-2) Customizing Nethack for the chroot Environment
+1) Installing Requisite Packages
+2) Configuring Nethack for the Chroot Environment
 3) Compiling Nethack
-4) Compiling dgamelaunch
-5) Configuring the chroot script
-6) Adjusting the dgamelaunch configuration
-7) Set up the Telnet Server
+4) Compiling Dgamelaunch
+5) Creating the Chroot
+6) Configuring Dgamelaunch
+7) Setting up the Telnet Server
 
 Here are the directories we will be using in this example:
 
@@ -19,7 +19,7 @@ Here are the directories we will be using in this example:
 - Nethack will be compiled into /home/nethack-compiled/
 - Dgamelaunch will be compiled into /home/dgamelaunch/
 
-### Requisite Packages
+### Installing Requisite Packages
 The commands that you will run to install all required packages:
 ```
 yum install gzip make gcc ncurses-libs ncurses-devel byacc flex autoconf automake git sqlite sqlite-devel xinetd telnet-server
@@ -46,7 +46,7 @@ Required packages for the telnet server:
 yum install xinetd telnet-server
 ```
 
-### Downloading Nethack
+#### Downloading Nethack
 
 Download the tarball and unpack it.
 ```
@@ -56,7 +56,7 @@ tar -xf nethack-343-src.tgz
 cd nethack-3.4.3
 ```
 
-### Customizing Nethack for the chroot Environment
+### Configuring Nethack for the Chroot Environment
 ##### 1) Edit src/cmd.c
 
 Change function enter_explore_mode() so users cannot do that; comment it out.
@@ -136,7 +136,7 @@ Uncomment This line:
 
 Change VAR_PLAYGROUND to "/nh343/var"
 
-### Compiling Nethack
+#### Compiling Nethack
 ##### 1) Run the setup script and `make all`.
 ```
 chmod +x ./sys/unix/setup.sh
@@ -167,7 +167,7 @@ make install
 
 If you have to go back and fix anything in the makefiles, you should run `make clean` and `./sys/unix/setup.sh` after.
 
-### Downloading and Compiling dgamelaunch
+### Compiling Dgamelaunch
 
 ##### 1) Download the latest version from GitHub
 ```
@@ -186,20 +186,20 @@ cd dgamelaunch
 make 
 ```
 
-### Configuring the chroot script
-Edit these lines in dgl-create-chroot, as follows:
+### Creating the Chroot
+##### 1) Edit these lines in dgl-create-chroot, as follows:
 ```
   CHROOT "/home/nethack/"
   NETHACKBIN="/home/nethack-compiled/nh343/nethack"
   NH_PLAYGROUND_FIXED="/home/nethack-compiled/nh343"
 ```
 
-### Setup the Chroot
+##### 2) Setup the Chroot
 ```
 ./dgl-create-chroot
 ```
 
-### Create These Files and Directories
+##### 3) Create These Files and Directories
 ```
 cd /home/nethack/
 touch nh343/perm
@@ -207,8 +207,8 @@ mkdir nh343/save
 chmod 777 nh343/save
 ```
 
-### Adjust the dgamelaunch Configuration
-Edit these lines in /home/nethack/etc/dgamelaunch.conf as follows:
+### Configuring Dgamelaunch
+##### Edit these lines in /home/nethack/etc/dgamelaunch.conf as follows:
 ```
 chroot_path  (enter full chroot path) "/home/nethack/" #The backslash at the end matters
 maxusers     (maximum REGISTERED users, not simultaneous
@@ -258,17 +258,17 @@ service xinetd start
 chkconfig xinetd on
 ```
 
-### Testing the Telnet Server
+#### Testing the Telnet Server
 
 Try connecting locally using 'telnet 127.0.0.1'.
 
 If you get an immediate "connection closed by foreign host", then something is probably wrong with dgamelaunch. A common issue is that the dgamelaunch config file was not specified correctly, and dgamelaunch is looking for it in /etc/dgamelaunch.conf and not in the chroot.
 
-### Customizing the Dgamelaunch Menus
+#### Customizing the Dgamelaunch Menus
 - Edit dgl-banner
 - Edit dgl_menu_*
 
-### Cleaning Up
+#### Cleaning Up
 /home/nethack-temp/ and /home/nethack-compiled/ can be removed if you don't need them.
 
 ### External Links and References Used to Compile This Guide
