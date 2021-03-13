@@ -4,13 +4,14 @@ A guide on how to compile [Nethack 3.4.3](https://www.nethack.org/v343/release.h
 This guide details how to set up a Nethack 3.4.3 server on CentOS 7 or 8. If you are using a different distribution, the required packages may have different names, and the commands used to install them will differ depending on your package manager.
 
 The steps to setup a Nethack 3.4.3 server are as follows:
-1) Installing Requisite Packages
-2) Configuring Nethack for the Chroot Environment
-3) Compiling Nethack
-4) Compiling Dgamelaunch
-5) Creating the Chroot
-6) Configuring Dgamelaunch
-7) Setting up the Telnet Server
+1) [Installing Requisite Packages](#installing-requisite-packages)
+2) [Configuring Nethack for the Chroot Environment](#configuring-nethack-for-the-chroot-environment)
+3) [Compiling Nethack](#compiling-nethack)
+4) [Compiling Dgamelaunch](#compiling-dgamelaunch)
+5) [Creating the Chroot](#creating-the-chroot)
+6) [Configuring Dgamelaunch](#configuring-dgamelaunch)
+7) [Testing Nethack and Dgamelaunch](#testing-nethack-and-dgamelaunch)
+8) [Setting up the Telnet Server](#setting-up-the-telnet-server)
 
 Here are the directories we will be using in this example:
 
@@ -136,7 +137,7 @@ Uncomment This line:
 
 Change VAR_PLAYGROUND to "/nh343/var"
 
-#### Compiling Nethack
+### Compiling Nethack
 ##### 1) Run the setup script and `make all`.
 ```
 chmod +x ./sys/unix/setup.sh
