@@ -212,7 +212,7 @@ chmod 777 nh343/save
 ##### Edit these lines in /home/nethack/etc/dgamelaunch.conf as follows:
 ```
 chroot_path  (enter full chroot path) "/home/nethack/" #The backslash at the end matters
-maxusers     (maximum REGISTERED users, not simultaneous
+maxusers     (set the maximum number of registered users, not simultaneous users)
 SERVERID    (your server name)
 shed_uid     (UID of user "games")
 shed_gid     (GID of group "games")
