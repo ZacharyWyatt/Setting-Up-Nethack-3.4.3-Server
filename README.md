@@ -1,6 +1,8 @@
 ## Setting-Up-Nethack-3.4.3-Server
 A guide on how to compile [Nethack 3.4.3](https://www.nethack.org/v343/release.html) and [Dgamelaunch](https://github.com/paxed/dgamelaunch), and to configure them to serve game sessions via telnet.
 
+If you just want to start playing, there's a number of public servers out there. [I host one too.](https://nethack.zacharymwyatt.com/)
+
 This guide details how to set up a Nethack 3.4.3 server on CentOS 7 or 8. If you are using a different distribution, the required packages may have different names, and the commands used to install them will differ depending on your package manager.
 
 The steps to setup a Nethack 3.4.3 server are as follows:
